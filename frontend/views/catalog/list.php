@@ -70,7 +70,9 @@ $this->title = Html::encode($title);
 									<img src="3.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
+							<?php 
 							
+					//  $model = new ContactForm(); ?>
 						</div>
 						
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">

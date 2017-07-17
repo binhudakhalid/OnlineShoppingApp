@@ -27,7 +27,6 @@ class CategorySearch extends Category
      */
     public function scenarios()
     {
-        // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
 
@@ -38,6 +37,7 @@ class CategorySearch extends Category
      *
      * @return ActiveDataProvider
      */
+     
     public function search($params)
     {
         $query = Category::find()->orderBy('parent_id ASC, id ASC');

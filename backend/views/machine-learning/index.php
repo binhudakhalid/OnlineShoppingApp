@@ -474,6 +474,22 @@ echo gmdate("Y-m-d\TH:i:s\Z", $timestamp);
                                     </div>
                                     <!-- /.table-responsive -->
                                 </div>
+
+                                <p>khalidd<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                
                                 <!-- /.col-lg-4 (nested) -->
                                 <div class="col-lg-8">
                                     <div id="morris-bar-chart"></div>

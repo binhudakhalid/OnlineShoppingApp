@@ -18,6 +18,21 @@ class CartController extends \yii\web\Controller
         }
     }
 
+/*// get all items from the cart
+$items = $cart->getItems();
+
+// get only products
+$items = $cart->getItems(Cart::ITEM_PRODUCT);
+
+// loop through cart items
+foreach ($items as $item) {
+	// access any attribute/method from the model
+	var_dump($item->getAttributes());
+
+	// remove an item from the cart by its ID
+	$cart->remove($item->uniqueId)
+}*/
+
     public function actionList()
     {
         /* @var $cart ShoppingCart */
@@ -74,7 +89,7 @@ class CartController extends \yii\web\Controller
                 $orderItem->quantity = $product->getQuantity();
                 if (!$orderItem->save(false)) {
                     $transaction->rollBack();
-                    \Yii::$app->session->addFlash('error', 'Cannot place your order. Please contact us.');
+                    \Yii::$app->session->addFlash('error', 'Error ha.');
                     return $this->redirect('catalog/list');
                 }
             }
@@ -82,7 +97,7 @@ class CartController extends \yii\web\Controller
             $transaction->commit();
             \Yii::$app->cart->removeAll();
 
-            \Yii::$app->session->addFlash('success', 'Thanks for your order. We\'ll contact you soon.');
+            \Yii::$app->session->addFlash('success', 'Thanks');
             $order->sendEmail();
 
             return $this->redirect('catalog/list');

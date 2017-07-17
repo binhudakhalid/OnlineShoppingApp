@@ -2,13 +2,64 @@
 
 namespace frontend\controllers;
 
+use Yii;
 use common\models\Category;
+use frontend\models\ContactForm;
 use common\models\Product;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
+use common\models\LoginForm;
+use yii\base\InvalidParamException;
+use yii\web\BadRequestHttpException;
+use yii\web\Controller;
+use yii\filters\VerbFilter; 
+use yii\filters\AccessControl;
+
+
+
 
 class CatalogController extends \yii\web\Controller
 {
+
+public function actionAbout()
+    {
+        return $this->render('about');
+    }
+
+    public function actionContact()
+    {
+        $model = new ContactForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+                Yii::$app->session->setFlash('success', 'Thanks');
+            } else {
+                Yii::$app->session->setFlash('error', 'An error Occur while sending email.');
+            }
+
+            return $this->refresh();
+        } else {
+            return $this->render('contact', [
+                'model' => $model,
+            ]);
+        }
+    }
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
+    }
+
     public function beforeAction($action)
     {
         if (parent::beforeAction($action)) {

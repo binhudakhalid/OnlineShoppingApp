@@ -18,8 +18,11 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
+        //"yii2mod/yii2-cart": "*"
         "omnilight/yii2-shopping-cart": "~1.0",
-		"macgyer/yii2-materializecss": "*"
+		"macgyer/yii2-materializecss": "*",
+        "dektrium/yii2-user": "0.9.*@dev",
+        "scotthuangzl/yii2-google-chart": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

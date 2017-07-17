@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::className(), //HTTP 405 error
                 'actions' => [
                     'delete' => ['post'],
                 ],
@@ -29,7 +29,6 @@ class CategoryController extends Controller
     public function actionIndex()
     {
         $searchModel = new CategorySearch();
-        
         //
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
