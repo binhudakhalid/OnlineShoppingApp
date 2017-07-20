@@ -1,7 +1,13 @@
 <?php
 use \yii\helpers\Html;
 ?>
-<h1>Your cart</h1>
+<h1>1
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+Your cart</h1>
 
 <div class="container-fluid">
     <div class="row">

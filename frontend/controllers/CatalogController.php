@@ -8,6 +8,7 @@ use frontend\models\ContactForm;
 use common\models\Product;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
+use backend\controller\ProductController;
 use common\models\LoginForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -96,11 +97,21 @@ public function actionAbout()
         ]);
     }
 
-    public function actionView()
-    {
-        return $this->render('view');
-    }
 
+public function actionView($id)
+{
+    $model1 = Product::find()
+    ->where(['id' => $id])
+     ->one();
+   
+
+      return $this->render('view', [
+            'model1' => $model1,
+        ]);
+}
+
+
+    
     /**
      * @param Category[] $categories
      * @param int $activeId

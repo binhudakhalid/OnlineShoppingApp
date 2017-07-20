@@ -13,7 +13,6 @@ $title = $category === null ? '' : $category->title;
 
 $this->title = Html::encode($title);
 ?>
-<p>catalog<P>
 
 
 <h1><?= Html::encode($title) ?></h1>

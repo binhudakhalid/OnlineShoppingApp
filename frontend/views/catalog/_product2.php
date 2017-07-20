@@ -13,7 +13,17 @@ if ($index + 1 % 4 == 0 && $index !== 0) {
 <div class="col-sm-4 well">
 
 
-<div >
+<div ><p>Dubai</p>
+<?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'title',
+            'description:ntext',
+            'category_id',
+            'price',
+        ],
+    ]) ?>
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
@@ -30,7 +40,7 @@ if ($index + 1 % 4 == 0 && $index !== 0) {
 											<h2>$<?= $model->price ?></h2>
 											<p>Description: <?= Markdown::process($model->description) ?>
 											
-											<?= Html::a('view', ['view', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+											<?= Html::a('Detail', ['view', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
 										
 										
 										
