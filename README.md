@@ -14,6 +14,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ----------
 
+Database
+----------
+Database file is included in the Project named "yii2advancedLast.sql".
+change it to yii2advanced.sql
 
 REQUIREMENTS
 -------------------
